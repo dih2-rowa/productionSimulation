@@ -1,0 +1,66 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/martinwogerbauer/Desktop/ProductionSim/ProductionSim.csproj": {}
+  },
+  "projects": {
+    "/Users/martinwogerbauer/Desktop/ProductionSim/ProductionSim.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/martinwogerbauer/Desktop/ProductionSim/ProductionSim.csproj",
+        "projectName": "ProductionSim",
+        "projectPath": "/Users/martinwogerbauer/Desktop/ProductionSim/ProductionSim.csproj",
+        "packagesPath": "/Users/martinwogerbauer/.nuget/packages/",
+        "outputPath": "/Users/martinwogerbauer/Desktop/ProductionSim/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/martinwogerbauer/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "RestSharp": {
+              "target": "Package",
+              "version": "[108.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.300/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

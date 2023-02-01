@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "i7Hby1bkvMXHWo1f3PkGd7ZTM53X1B3EUPA2aEawYukNAaT9SSTyDQaSfEAEcPGAr9lJu6/vvJigx5nE/GY5nw==",
+  "success": true,
+  "projectFilePath": "/Users/martinwogerbauer/Desktop/ProductionSim/ProductionSim.csproj",
+  "expectedPackageFiles": [
+    "/Users/martinwogerbauer/.nuget/packages/restsharp/108.0.2/restsharp.108.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
