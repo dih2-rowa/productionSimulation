@@ -1,0 +1,7 @@
+how to start.
+
+
+run in terminal:
+
+1. npm i (if you start the first time)
+2. node app.js 

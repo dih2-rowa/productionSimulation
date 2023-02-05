@@ -1,0 +1,3 @@
+in the terminal (folder: Simulation) run:
+
+dotnet watch run

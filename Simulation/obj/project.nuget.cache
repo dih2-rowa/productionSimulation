@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "weP9P8/DHaDNnm2RJkiiFA+1V6W5K2PqBkNcPUFD7HxyQR2RfpM8YAH9x2Sjc+u+fpc7v1HFypF0Ah746AB/ew==",
+  "success": true,
+  "projectFilePath": "/Users/martinwogerbauer/Desktop/simulation-repo/productionSimulation/Simulation/ProductionSim.csproj",
+  "expectedPackageFiles": [
+    "/Users/martinwogerbauer/.nuget/packages/restsharp/108.0.2/restsharp.108.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
