@@ -1,8 +1,10 @@
 const axios = require('axios');
+const cratedb_url = 'http://host.docker.internal:4200';
+const fiware_url = 'http://host.docker.internal:1026'
 
 
 const getOrderTimeSeriesDataFromCrateDB = async(id) => {
-    const response = await axios.post(`http://localhost:4200/_sql`, {
+    const response = await axios.post(`${cratedb_url}/_sql`, {
         "stmt": `SELECT entity_id, entity_type, time_index, fiware_servicepath, __original_ngsi_entity__, i40physicalmodeltype, i40assetname, productid, workstationid, planparts, prodparts, prodpartsio, starttime, finishedtime, deadline, orderstatus, oee, oeeperfomrance, oeequality
         FROM "mtrobot_info"."eti40assetorder" WHERE entity_id = '${id}' ORDER BY time_index DESC
         LIMIT 100;`
@@ -11,7 +13,7 @@ const getOrderTimeSeriesDataFromCrateDB = async(id) => {
 };
 
 const getWorkingStationTimeSeriesDataFromCrateDB = async(id) => {
-    const response = await axios.post(`http://localhost:4200/_sql`, {
+    const response = await axios.post(`${cratedb_url}/_sql`, {
         "stmt": `SELECT entity_id, entity_type, time_index, fiware_servicepath, __original_ngsi_entity__, i40physicalmodeltype, i40assetname, orderid, robotrunning, robotspeed, currcycletime, drawer1status, drawer2status, restservicelife
         FROM "mtrobot_info"."eti40assetworkingstation" where entity_id ='${id}' 
         ORDER BY time_index DESC
@@ -21,7 +23,7 @@ const getWorkingStationTimeSeriesDataFromCrateDB = async(id) => {
 }
 
 getProductTimeSeriesDataFromCrateDB = async(id) => {
-    const response = await axios.post(`http://localhost:4200/_sql`, {
+    const response = await axios.post(`${cratedb_url}/_sql`, {
         "stmt": `SELECT entity_id, entity_type, time_index, fiware_servicepath, __original_ngsi_entity__, i40physicalmodeltype, i40assetname, programname, programversion, versiononrobot, processinglength, plancycletime, pdf
         FROM "mtrobot_info"."eti40assetproduct" WHERE entity_id = '${id}' 
         ORDER BY time_index DESC
@@ -46,7 +48,7 @@ const updatingOrder = async(id, oeePerfomrance, oeeQuality, oee) => {
         },
     }
     body = JSON.stringify(body);
-    const response = await axios.patch(`http://localhost:1026/v2/entities/${id}/attrs`,
+    const response = await axios.patch(`${fiware_url}/v2/entities/${id}/attrs`,
         body, {
             headers: {
                 'content-Type': 'application/json',

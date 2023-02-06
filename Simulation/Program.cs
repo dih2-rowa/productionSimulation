@@ -20,7 +20,7 @@ namespace Main
 
 
         // url to fiware/orion broker
-        public static string URL { get; set; }  = "http://localhost:1026/";
+        public static string URL { get; set; }  = "http://host.docker.internal:1026/";
 
         // Id of the workingstation
         public static string ID { get; set; } = "urn:ngsiv2:I40Asset:Workstation00001";
@@ -75,7 +75,7 @@ namespace Main
     }
 
     public static int getRandomTime(int baseTime){
-        int randTime = new Random().Next(16);
+        int randTime = new Random().Next(5);
         return baseTime+ randTime;
     }
 
@@ -185,7 +185,7 @@ namespace Main
                        request4.AddJsonBody(body04);
                         var obj = client4.Execute(request4);
                         Console.WriteLine("Updating order:" + prodParts);
-                        Console.WriteLine(obj.StatusDescription);
+                        Console.WriteLine(obj.ErrorException);
                      }
 
                     else

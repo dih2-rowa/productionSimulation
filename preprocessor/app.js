@@ -1,8 +1,9 @@
 const runner = require('./preprocessor')
     // const { Client } = require('cratedb');
 const { default: axios } = require('axios');
+const getData = require('./data');
 
-const endpoint = 'http://localhost:1026/v2/entities';
+const endpoint = 'http://host.docker.internal:1026/v2/entities';
 const type = 'I40AssetOrder';
 
 const getEntitiesByType = async(type) => {
@@ -16,6 +17,9 @@ const getEntitiesByType = async(type) => {
     console.log(result.data)
     return result;
 }
+
+// id you want timeseries data from crate db uncomment the next line
+// getData.getData();
 
 
 setInterval(function() {

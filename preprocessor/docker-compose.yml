@@ -1,14 +1,11 @@
-version: '3.8'
+version: '2'
 services:
   web:
-    build:
-      context: ./
-      target: dev
+    build: .
+    command: node app.js 
+    
     volumes:
-      - .:/src
-    command: node app.js
+      - .:/usr/app/
+      - /usr/app/node_modules
     ports:
       - "3000:3000"
-    environment:
-      NODE_ENV: development
-      DEBUG: nodejs-docker-express:*

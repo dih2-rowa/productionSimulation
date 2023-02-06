@@ -1,0 +1,26 @@
+# Use Microsoft's official .NET image
+FROM mcr.microsoft.com/dotnet/sdk:6.0
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the contents of the project to the working directory
+COPY . .
+
+# Restore the dependencies
+RUN dotnet restore
+
+# Build the project
+RUN dotnet build
+
+# Publish the project
+RUN dotnet publish -c Release -o out
+
+# Set the working directory to the published output
+WORKDIR /app/out
+
+# Expose port 80 for incoming HTTP requests
+EXPOSE 80
+
+# Start the .NET application
+ENTRYPOINT ["dotnet", "ProductionSim.dll"]
