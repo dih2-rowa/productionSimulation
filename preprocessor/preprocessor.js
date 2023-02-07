@@ -64,14 +64,9 @@ const updatingOrder = async(id, oeePerfomrance, oeeQuality, oee) => {
 const calculateOEE = (orderId, prodParts, prodPartsIO, finishedTime, startTime, deadline, planCycleTime, currCycleTime) => {
     let performance = planCycleTime / currCycleTime
     let oeeQuality = prodPartsIO / prodParts;
-    console.log(prodPartsIO);
-    console.log(prodParts);
 
     let availability = (finishedTime - startTime) / (deadline - startTime);
 
-    console.log(availability);
-    console.log(performance),
-        console.log(oeeQuality)
     let oeePerformance = performance * oeeQuality;
     let oee = availability * performance * oeeQuality;
 
@@ -93,19 +88,15 @@ exports.calculateOEE = (id) => {
         const deadline = orderTimeSeries.data.rows[0][13]
         console.log(orderTimeSeries.data.rows[0]);
 
-        getWorkingStationTimeSeriesDataFromCrateDB('urn:ngsiv2:I40Asset:Workstation00001').then((workingStationTimeSeries) => {
+        getWorkingStationTimeSeriesDataFromCrateDB(workingStationId).then((workingStationTimeSeries) => {
             const currCycleTime = workingStationTimeSeries.data.rows[0][10]
 
-            getProductTimeSeriesDataFromCrateDB('urn:ngsiv2:I40Asset:Product00001').then((productTimeSeries) => {
+            getProductTimeSeriesDataFromCrateDB(productId).then((productTimeSeries) => {
                 const planCycleTime = productTimeSeries.data.rows[0][11]
                 calculateOEE(orderId, prodParts, prodPartsIO, finishedTime, startTime, deadline, planCycleTime, currCycleTime);
             })
 
         });
-
-
-
-
     });
 
 };
