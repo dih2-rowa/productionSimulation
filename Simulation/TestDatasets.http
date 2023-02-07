@@ -5,7 +5,7 @@ fiware-service: robot_info
 fiware-servicepath: /demo
 
 {
-    "id": "urn:ngsiv2:I40Asset:ON000001",
+    "id": "urn:ngsiv2:I40Asset:ON000002",
     "type": "I40AssetOrder",
     "I40PhysicalModelType": {
       "value": "Order",
@@ -67,7 +67,7 @@ fiware-servicepath: /demo
 
 
 ### create Workingstation
-POST http://10.92.80.10:1026/v2/entities/
+POST http://localhost:1026/v2/entities/
 content-type: application/json
 fiware-service: robot_info
 fiware-servicepath: /demo
@@ -84,7 +84,7 @@ fiware-servicepath: /demo
     "type": "String"
   },
     "orderID": {
-      "value": "urn:ngsiv2:I40Asset:ON000001",
+      "value": "urn:ngsiv2:I40Asset:ON000002",
       "type": "String"
   },
   "robotRunning": {

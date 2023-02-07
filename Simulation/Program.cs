@@ -26,7 +26,7 @@ namespace Main
         public static string ID { get; set; } = "urn:ngsiv2:I40Asset:Workstation00001";
 
         // order NR 
-        public static string ON = "urn:ngsiv2:I40Asset:ON000001";
+        public static string ON = "urn:ngsiv2:I40Asset:ON000002";
 
         // Plan parts nr 
         public static int PlanPart = 100;
