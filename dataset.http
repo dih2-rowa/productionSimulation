@@ -1,0 +1,157 @@
+### create order
+POST http://localhost:1026/v2/entities/
+content-type: application/json
+fiware-service: robot_info
+fiware-servicepath: /demo
+
+{
+    "id": "urn:ngsiv2:I40Asset:ON000001",
+    "type": "I40AssetOrder",
+    "I40PhysicalModelType": {
+      "value": "Order",
+      "type": "String"
+    },
+    "I40AssetName": {
+      "value": "ON000001",
+      "type": "String"
+    },
+    "productID": {
+      "value": "urn:ngsiv2:I40Asset:Product00001",
+      "type": "String"
+    },
+    "workstationID": {    
+      "value": "urn:ngsiv2:I40Asset:Workstation00001",
+      "type": "String"
+    },
+    "planParts": {
+      "value": 100,
+      "type": "Integer"
+    },
+    "prodParts": {
+      "value": 0,
+      "type": "Integer"
+    },
+    "prodPartsIO": {
+      "value": 0,
+      "type": "Integer"
+    },
+    "startTime": {
+        "value": "2023-02-07 09:20:00",
+        "type": "Datetime"
+    },
+    "finishedTime": {
+      "value": "0000-00-00 00:00:00",
+      "type": "Datetime"
+    },
+    "deadline": {
+        "value": "2023-02-10 00:00:00",
+        "type": "Datetime"
+    },
+    "orderStatus": {
+      "value": "Idle", 
+      "type": "String"
+    },
+    "oee": {
+      "value": 10000.0,
+      "type": "Number"
+    },
+    "oeePerfomrance": {
+      "value": 10000.0,
+      "type": "Number"
+    },
+    "oeeQuality": {
+      "value": 10000.0,
+      "type": "Number"
+    }
+  }
+
+
+### create Workingstation
+POST http://localhost1026/v2/entities/
+content-type: application/json
+fiware-service: robot_info
+fiware-servicepath: /demo
+
+{
+  "id": "urn:ngsiv2:I40Asset:Workstation00001",
+  "type": "I40AssetWorkingstation",
+  "I40PhysicalModelType": {
+    "value": "Workstation",
+    "type": "String"
+  },
+  "I40AssetName": {
+    "value": "Robot1",
+    "type": "String"
+  },
+    "orderID": {
+      "value": "urn:ngsiv2:I40Asset:ON000001",
+      "type": "String"
+  },
+  "robotRunning": {
+    "value": true,
+    "type": "Boolean"
+  },
+  "robotSpeed": {
+    "value": 100,
+    "type": "Integer"
+  },
+  "currCycleTime": {
+    "value": 32,
+    "type": "Integer"
+  },
+  "drawer1Status": {
+    "value": "Idle",
+    "type": "String"
+  },
+  "drawer2Status": {
+    "value": "Idle", 
+    "type": "String"
+  },
+    "restServiceLife": {
+    "value": 320000,
+    "type": "Integer"
+  }
+}
+
+### create product
+POST http://localhost:1026/v2/entities/
+content-type: application/json
+fiware-service: robot_info
+fiware-servicepath: /demo
+
+{
+  "id": "urn:ngsiv2:I40Asset:Product00001",
+  "type": "I40AssetProduct",
+  "I40PhysicalModelType": {
+    "value": "Product",
+    "type": "String"
+  },
+  "I40AssetName": {
+    "value": "MY83_9G920",
+    "type": "String"
+  },
+  "programName": {
+    "value": "MY83_9G920.src",
+    "type": "String"
+  },
+  "programVersion": {
+    "value": 1,
+    "type": "Integer"
+  },
+  "versionOnRobot": {
+      "value": true,
+      "type": "Boolean"
+  },
+  "processingLength": {
+    "value": 324,
+    "type": "Integer"
+  },
+  "planCycleTime": {
+    "value": 8,
+    "type": "Integer"
+  },
+  "pdf": {
+    "value": "MY83_9G920.pdf",
+    "type": "String"
+  }
+}
