@@ -13,6 +13,30 @@ With the help of the production simulation datase traffic is generated on FIWARE
 After starting the simulation, the following patches are carried out:
 
 #### i40AssetOrder
+![image](https://user-images.githubusercontent.com/102011176/217534949-ec7f159d-d6a7-444d-8042-2cdc53575f3b.png)
+
+With patches, the "produced components" and the "produced components with sufficient quality" are changed in real time (after a specified cycle time has elapsed).
+Furthermore, the order status is set to "Completed" after completion of the order.
+
+#### i40AssetWorkstation
+![image](https://user-images.githubusercontent.com/102011176/217536109-5b60bae1-8370-4bfc-be36-1192b9d44b98.png)
+
+For this dataset, the following attributes are changed during runtime:
+* Current cycle time
+* Status drawer 1
+* Status drawer 2
+* Robot running
+
+The cycle time is determined and set after each cycle (when the "Complete" status is set). 
+Robot running is always set to true when the robot is running a process, otherwise it is set to false. 
+The drawer statuses are set in a specific order:
+
+1. raw part drawer 1
+2. process finished drawer 2
+3. process in drawer 1
+4. raw part drawer 2
+5. process finished drawer 1
+6. process in drawer 2
 
 ### How to start the simulation
 
