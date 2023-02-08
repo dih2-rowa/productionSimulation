@@ -59,7 +59,9 @@ The preprocessor calculates the following oee metrics:
 - performance
 - oee
 
-Every 10 seconds data is retrieved from crateDB and these metrics are calculated from the last data of the last entry. Hte calculated data is sent to the PATCH endpoint of the dataset of fiware.
+Every 10 seconds data is retrieved from crateDB and these metrics are calculated on the basis of the historical dat. The calculated data is sent to the PATCH endpoint of the dataset (i40AssetOrder) of FIWARE.
+
+![image](https://user-images.githubusercontent.com/102011176/217539750-f992c751-0b43-4797-8598-7ab6741a2a3f.png)
 
 
 ### Prerequisits
