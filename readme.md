@@ -7,10 +7,13 @@ The Simulation and the Preprocessor are based on the datatypes in the programmha
 
 For every type of asset, a subscription is needed to save historical data in the CrateDB
 
-
-
-
 # Simulation
+### Description
+With the help of the production simulation datase traffic is generated on FIWARE. Thereby the traffic for the data types i40AssetOrder and i40AssetWorkstation is created. The prerequisite is that the corresponding i40AssetOrder and i40AssetWorkstation datasets already exist in FIWARE.
+After starting the simulation, the following patches are carried out:
+
+#### i40AssetOrder
+
 ### How to start the simulation
 
 1. Open Program.cs
@@ -18,7 +21,6 @@ For every type of asset, a subscription is needed to save historical data in the
 3. Change the property "ON" to the ID of the order
 4. If the simulation is running outside of a docker container change also the URL. This is the URL of fiware
 5. The next property which needs to be changed is "PlanParts".
-
 6. Now you can do a docker-compose up. 
 7. If you start the program without docker run the following command in the terminal:
 `dotnet watch run`
