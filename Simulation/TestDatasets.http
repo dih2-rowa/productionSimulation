@@ -1,3 +1,10 @@
+### check entities
+GET http://localhost:1026/v2/entities/
+fiware-service: robot_info
+fiware-servicepath: /demo
+
+
+
 ### create order
 POST http://localhost:1026/v2/entities/
 content-type: application/json
@@ -84,7 +91,7 @@ fiware-servicepath: /demo
     "type": "String"
   },
     "orderID": {
-      "value": "urn:ngsiv2:I40Asset:ON000002",
+      "value": "urn:ngsiv2:I40Asset:ON000001",
       "type": "String"
   },
   "robotRunning": {

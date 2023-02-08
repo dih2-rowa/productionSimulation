@@ -5,3 +5,76 @@ services:
     build: .
     ports:
       - "80:80"
+
+  orion:
+    hostname: orion
+    image: fiware/orion:latest
+    networks:
+      - hostnet
+      - ocbnet
+    ports:
+      - "1026:1026"
+    depends_on:
+      - orion_mongo
+    entrypoint: /usr/bin/contextBroker -fg -multiservice -ngsiv1Autocast -statCounters -dbhost mongo -logForHumans -logLevel DEBUG -t 255 -corsOrigin __ALL -corsMaxAge 600
+
+  orion_mongo:
+    hostname: orion_mongo
+    image: mongo:latest
+    networks:
+      ocbnet:
+        aliases:
+          - mongo
+    volumes:
+      - orion_mongo_data:/data/db
+      - orion_mongo_conf:/data/configdb
+    command: --nojournal
+
+
+    ############## CrateDB #########
+    # Quantum Leap is persisting Short Term History to Crate-DB
+  quantumleap:
+    image: smartsdk/quantumleap:0.8
+    networks:
+      - hostnet
+      - iotnet
+    hostname: quantumleap
+    container_name: fiware-quantumleap
+    restart: always
+    ports:
+      - "8668:8668"
+    depends_on:
+      - crate-db
+    environment:
+      - CRATE_HOST=crate-db
+    healthcheck:
+      test: curl --fail -s http://localhost:8668/version || exit 1
+  crate-db:
+    image: crate:latest
+    networks:
+      - hostnet
+      - iotnet
+    hostname: crate-db
+    container_name: db-crate
+    restart: always
+    ports:
+      # Admin UI
+      - "4200:4200"
+      # Transport protocol
+      - "4300:4300"
+    command: crate -Cauth.host_based.enabled=false  -Ccluster.name=democluster -Chttp.cors.enabled=true -Chttp.cors.allow-origin="*"
+    volumes:
+      - crate-db:/data
+
+volumes:
+  iotmongo_data:
+  iotmongo_conf:
+  orion_mongo_data:
+  orion_mongo_conf:
+  crate-db:
+
+
+networks:
+  hostnet:
+  iotnet:
+  ocbnet:
