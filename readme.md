@@ -52,6 +52,9 @@ The drawer statuses are set in a specific order:
 
 ![image](https://user-images.githubusercontent.com/102011176/217734710-fbcd4bc1-8b85-4948-a9e2-b68513ca3a22.png)
 
+See how to use video:
+https://www.youtube.com/watch?v=F6mC325THfM
+
 ---
 # PreProcessor
 ### How to start the preprocessor
