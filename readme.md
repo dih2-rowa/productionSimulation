@@ -45,9 +45,13 @@ The drawer statuses are set in a specific order:
 3. Change the property "ON" to the ID of the order
 4. If the simulation is running outside of a docker container change also the URL. This is the URL of fiware
 5. The next property which needs to be changed is "PlanParts".
-6. Now you can do a docker-compose up. 
-7. If you start the program without docker run the following command in the terminal:
+6. If needed the cycle time can be adjust with "CycleTimeBase" (it will differ randam in a certain range)
+7. Now you can do a docker-compose up. 
+8. If you start the program without docker run the following command in the terminal:
 `dotnet watch run`
+
+![image](https://user-images.githubusercontent.com/102011176/217734710-fbcd4bc1-8b85-4948-a9e2-b68513ca3a22.png)
+
 ---
 # PreProcessor
 ### How to start the preprocessor
