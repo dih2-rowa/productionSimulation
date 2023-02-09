@@ -6,13 +6,6 @@ using RestSharp;
 namespace Main
     {
 
-        // Robot
-        // Changes --> Raw Part --> Execute
-        //             Processed --> Complete
-        //             Empty --> Idle
-        // Order
-        //             Finished --> Complete
-
     public class Program
     {
 
@@ -26,10 +19,17 @@ namespace Main
         public static string ID { get; set; } = "urn:ngsiv2:I40Asset:Workstation00001";
 
         // order NR 
-        public static string ON = "urn:ngsiv2:I40Asset:ON000002";
+        public static string ON = "urn:ngsiv2:I40Asset:ON000001";
+
+        // the time base for the cycleTime. To this base another time is added which is a random-Time generated in the getRandomTime function
+        public static int CycleTimeBase { get; set; } = 2;
 
         // Plan parts nr 
         public static int PlanPart = 100;
+        
+        
+
+
 
         public static int prodParts = 0;
         public static int prodPartsIO = 0;
@@ -47,7 +47,7 @@ namespace Main
             int opPutTime1 = intOp1 - opTakeTime1;
             SetDrawer1StatusToExecute();
             Thread.Sleep(opTakeTime1);
-            var drawer1CycleTime = getRandomTime(2) * 1000;
+            var drawer1CycleTime = getRandomTime(CycleTimeBase) * 1000;
             if(prodParts != 0){
                 SetDrawer2StatusToIdle();
             }
@@ -56,7 +56,7 @@ namespace Main
             SetDrawer2StatusToExecute();
             Thread.Sleep(opTakeTime1);
             SetDrawer1StatusToIdle();
-            var drawer2CycleTime = getRandomTime(3) * 1000;
+            var drawer2CycleTime = getRandomTime(CycleTimeBase) * 1000;
             Thread.Sleep(drawer2CycleTime - opTakeTime1);
             SetDrawer2StatusToComplete(drawer2CycleTime);
             prodParts = prodParts +1;
@@ -224,56 +224,4 @@ namespace Main
     }
 }
         
-
-//         public static void Schublade1()
-//         {
-           
-
-          
-//                 Console.WriteLine(prodParts);
-//                 int randCyc1 = new Random().Next(16);
-//                 int CurCycTime1 = 2 + randCyc1;
-//                 int randOp1 = new Random().Next(7);
-//                 int intOp1 = 11 + randOp1;
-//                 int opTakeTime1 = (intOp1 / 3);
-//                 int opPutTime1 = intOp1 - opTakeTime1;
-
-//             Console.WriteLine(CurCycTime1);
-
-
-
-//                 Console.WriteLine(obj.StatusDescription);
-                 
-
-//                 // wait TZ
-//                 Thread.Sleep(CurCycTime1 * 1000);
-
-
-// //Completed
-// // Create the request to fiware/orion (Updating the workingstation); drawer1Status is set to completed and the robotRunning to false
-
-
-
-
-
-                
-
-//                 // Wait operator putting part
-//                 Thread.Sleep(opPutTime1 * 1000);
-
-// // Create the request to fiware/orion (Updating the workingstation); drawer1Status is set to execute
-//                 // var client3 = new RestClient(URL);
-//                 // var request3 = new RestRequest("v2/entities/" + ID +"/attrs", Method.Patch);
-//                 // request3.AddHeader("fiware-service", "robot_info");
-//                 // request3.AddHeader("fiware-servicepath", "/demo");
-//                 // request3.AddHeader("Content-Type", "application/json");
-//                 // var body3 = @"" + "\n" + @"  {   ""drawer1Status"": {""value"": ""Execute"", ""type"": ""String""  }  }";
-//                 // string body03 = Convert.ToString(body3);
-//                 // request3.AddJsonBody(body03);
-//                 // client3.Execute(request3);
-            
-//         }
-
-
-    // }
 

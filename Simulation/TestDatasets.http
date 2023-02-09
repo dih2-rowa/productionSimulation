@@ -3,6 +3,21 @@ GET http://localhost:1026/v2/entities/
 fiware-service: robot_info
 fiware-servicepath: /demo
 
+### check subscriptions
+GET http://localhost:1026/v2/subscriptions/
+fiware-service: robot_info
+fiware-servicepath: /demo
+
+
+### Delete entities
+DELETE  http://localhost:1026/v2/entities/urn:ngsiv2:I40Asset:ON000002
+fiware-service: robot_info
+fiware-servicepath: /demo
+
+### delete subscriptions
+DELETE http://localhost:1026/v2/subscriptions/63e3b104c4c85e51840e68ed
+fiware-service: robot_info
+fiware-servicepath: /demo
 
 
 ### create order
